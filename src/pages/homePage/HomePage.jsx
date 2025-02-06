@@ -1,9 +1,9 @@
 
 const HomePage = () => {
     return (
-        <div className="container mx-auto">
-            <h1>This is Home Page</h1>
-        </div>
+      <div>
+        <h1>This is Home Page</h1>
+      </div>
     );
 };
 
