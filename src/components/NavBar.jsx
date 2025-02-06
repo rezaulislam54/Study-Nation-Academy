@@ -73,7 +73,7 @@ const NavBar = () => {
     </>
   );
   return (
-    <div className=" w-screen z-50 h-14 bg-[#000814] border-b-[1px] border-b-richblack-700 translate-y-  transition-all duration-500">
+    <div className=" w-screen z-50 h-18 bg-[#000814] border-b-[1px] border-b-[#2c333f] translate-y-  transition-all duration-500">
       <div className="navbar justify-between container mx-auto">
         <div className="">
           <Link className="flex gap-2 items-center" to={"/"}>
@@ -81,10 +81,10 @@ const NavBar = () => {
           </Link>
         </div>
         {/* <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{navlinks}</ul>
+          <ul className="menu menu-horizontal  px-1">{navlinks}</ul>
         </div> */}
         <div className="flex">
-          <div className=" hidden md:flex font-clashDisplay">
+          <div className=" hidden md:flex font-clashDisplay text-[#dbddea]">
             <ul className="menu menu-horizontal text-white items-center text-xl px-1">
               {navlinks}
             </ul>
