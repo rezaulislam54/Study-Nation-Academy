@@ -87,10 +87,10 @@ const CourseBuilderForm = () => {
   };
 
   return (
-    <div className="space-y-8 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-6">
-      <p className="text-2xl font-semibold text-richblack-5">Course Builder</p>
+    <div className="space-y-8 rounded-md border-[1px] border-richblack-700 bg-[#161d29] p-6">
+      <p className="text-2xl font-semibold text-[#f1f2ff]">Course Builder</p>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <label className="text-sm text-richblack-5" htmlFor="sectionName">
+        <label className="text-sm text-[#f1f2ff]" htmlFor="sectionName">
           Section Name<sup className="text-pink-200">*</sup>
         </label>
         <input
@@ -101,12 +101,14 @@ const CourseBuilderForm = () => {
           {...register("sectionName", { required: true })}
         />
         {errors.sectionName && (
-          <p className="ml-2 text-xs tracking-wide text-pink-200">This field is required</p>
+          <p className="ml-2 text-xs tracking-wide text-pink-200">
+            This field is required
+          </p>
         )}
         <div className="flex items-end gap-x-4">
           <button
             type="submit"
-            className="flex items-center border border-yellow-50 bg-transparent cursor-pointer gap-x-2 rounded-md py-2 px-5 font-semibold text-richblack-900 undefined"
+            className="flex items-center border border-yellow-50 bg-transparent cursor-pointer gap-x-2 rounded-md py-2 px-5 font-semibold text-[#000814] undefined"
           >
             <span className="text-yellow-50">
               {editSectionName ? "Edit Section Name" : "Create Section"}
@@ -120,27 +122,29 @@ const CourseBuilderForm = () => {
                 setValue("sectionName", "");
               }}
               type="button"
-              className="text-sm text-richblack-300 underline"
+              className="text-sm text-[#838894] underline"
             >
               Cancel Edit
             </button>
           )}
         </div>
       </form>
-      {course.courseContent.length > 0 && <NestedView handelChangeEditSectionName={handelChangeEditSectionName} />}
+      {course.courseContent.length > 0 && (
+        <NestedView handelChangeEditSectionName={handelChangeEditSectionName} />
+      )}
       <div className="flex justify-end gap-x-3">
         <button
           onClick={() => {
             dispatch(setEditCourse(true));
             dispatch(setStep(1));
           }}
-          className="flex cursor-pointer items-center gap-x-2 rounded-md bg-richblack-300 py-[8px] px-[20px] font-semibold text-richblack-900"
+          className="flex cursor-pointer items-center gap-x-2 rounded-md bg-[#838894] py-[8px] px-[20px] font-semibold text-[#000814]"
         >
           Back
         </button>
         <button
           onClick={gonext}
-          className="flex items-center bg-yellow-50 cursor-pointer gap-x-2 rounded-md py-2 px-5 font-semibold text-richblack-900 undefined"
+          className="flex items-center bg-yellow-50 cursor-pointer gap-x-2 rounded-md py-2 px-5 font-semibold text-[#000814] undefined"
         >
           <span className="false">Next</span>
           <svg

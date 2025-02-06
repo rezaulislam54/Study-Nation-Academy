@@ -22,20 +22,20 @@ const HomePage = () => {
           Empower Your Future With <HighlightText text={"Coding Skills"} />
         </div>
 
-        <div className=" mt-4 w-[90%] text-left md:text-center text-sm md:text-lg font-bold text-[#838894]">
+        <div className=" mt-4 w-[90%] text-left md:text-center text-sm md:text-lg font-bold text-[[#838894]]">
           With our online coding courses, you can learn at your own pace, from
           anywhere in the world, and get access to a wealth of resources,
           including hands-on projects, quizzes, and personalized feedback from
           instructors.
         </div>
-        <div className="flex flex-row gap-7 mt-8">
+        {/* <div className="flex flex-row gap-7 mt-8">
           <CTAButton active={true} linkto={"/signup"}>
             Learn More
           </CTAButton>
           <CTAButton active={false} linkto={"/login"}>
             Book a Demo
           </CTAButton>
-        </div>
+        </div> */}
 
         {/* <div className="mx-3 my-12 shadow-blue-200 w-[70%] relative">
           <div className="grad2 -top-10 w-[800px]"></div>
@@ -43,7 +43,7 @@ const HomePage = () => {
             <source src={Banner} type="video/mp4" />
           </video>
         </div> */}
-
+        {/* 
         <div>
           <CodeBlocks
             position={"lg:flex-row"}
@@ -71,7 +71,7 @@ const HomePage = () => {
             codeColor={"white"}
             backgroudGradient={"grad"}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

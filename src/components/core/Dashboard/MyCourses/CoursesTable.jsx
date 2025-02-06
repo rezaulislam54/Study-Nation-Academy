@@ -48,9 +48,9 @@ export default function CoursesTable({ courses, setCourses }) {
 
   return (
     <>
-      <Table className="rounded-xl border border-richblack-800 ">
-        <Thead >
-          <Tr className="flex gap-x-10 rounded-t-md border-b border-b-richblack-800 px-6 py-2 text-richblack-100">
+      <Table className="rounded-xl border border-[#161d29] ">
+        <Thead>
+          <Tr className="flex gap-x-10 rounded-t-md border-b border-b-[#161d29] px-6 py-2 text-richblack-100">
             <Th className="flex-1 text-left text-sm font-medium uppercase text-richblack-100">
               Courses
             </Th>
@@ -77,19 +77,19 @@ export default function CoursesTable({ courses, setCourses }) {
             courses?.map((course) => (
               <Tr
                 key={course?._id}
-                className="flex gap-x-10 border-b border-richblack-800 px-6 py-8 gap-4"
+                className="flex gap-x-10 border-b border-[#161d29] px-6 py-8 gap-4"
               >
-                <Td colSpan={1}  className="flex flex-1 gap-x-4 p-3">
+                <Td colSpan={1} className="flex flex-1 gap-x-4 p-3">
                   <img
                     src={course?.thumbnail}
                     alt={course?.courseName}
                     className="md:h-[148px] md:w-[220px] aspect-video rounded-lg object-cover"
                   />
                   <div className="flex flex-col gap-1 justify-between">
-                    <p className="text-lg font-semibold text-richblack-5 mt-3">
+                    <p className="text-lg font-semibold text-[#f1f2ff] mt-3">
                       {course.courseName}
                     </p>
-                    <p className="text-xs text-richblack-300">
+                    <p className="text-xs text-[#838894]">
                       {course?.courseDescription.split(" ")?.length >
                       TRUNCATE_LENGTH
                         ? course.courseDescription
@@ -99,7 +99,8 @@ export default function CoursesTable({ courses, setCourses }) {
                         : course.courseDescription}
                     </p>
                     <p className="text-[12px] text-white">
-                      Created: {formatDate(course?.createdAt || course?.updatedAt)}
+                      Created:{" "}
+                      {formatDate(course?.createdAt || course?.updatedAt)}
                     </p>
                     {course.status === COURSE_STATUS.DRAFT ? (
                       <p className="flex w-fit flex-row items-center gap-2 rounded-full bg-richblack-700 px-2 py-[2px] text-[12px] font-medium text-pink-100">
@@ -148,7 +149,7 @@ export default function CoursesTable({ courses, setCourses }) {
                         btn2Handler: !loading
                           ? () => setConfirmationModal(null)
                           : () => {},
-                      })
+                      });
                     }}
                     title="Delete"
                     className="px-1 transition-all duration-200 hover:scale-110 hover:text-[#ff0000]"
@@ -163,5 +164,5 @@ export default function CoursesTable({ courses, setCourses }) {
       </Table>
       {confirmationModal && <ConfirmationModal modalData={confirmationModal} />}
     </>
-  )
+  );
 }

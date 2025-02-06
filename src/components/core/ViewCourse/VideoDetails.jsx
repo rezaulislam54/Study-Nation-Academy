@@ -116,75 +116,89 @@ const VideoDetails = () => {
  
    
   return (
-    <div className='md:w-[calc(100vw-320px)] w-screen p-3'>
-      {
-        !videoData ? <h1>Loading...</h1> :
-        (
-          <div>
-            <Player className="w-full relative"
-              ref={playerRef}
-              src={videoData.videoUrl}
-              aspectRatio="16:9"
-              fluid={true}
-              autoPlay={false}
-              onEnded={() => setVideoEnd(true)}
-            >
-              
-              <BigPlayButton position="center" />
+    <div className="md:w-[calc(100vw-320px)] w-screen p-3">
+      {!videoData ? (
+        <h1>Loading...</h1>
+      ) : (
+        <div>
+          <Player
+            className="w-full relative"
+            ref={playerRef}
+            src={videoData.videoUrl}
+            aspectRatio="16:9"
+            fluid={true}
+            autoPlay={false}
+            onEnded={() => setVideoEnd(true)}
+          >
+            <BigPlayButton position="center" />
 
-              <LoadingSpinner />
-              <ControlBar>
+            <LoadingSpinner />
+            <ControlBar>
               <PlaybackRateMenuButton rates={[5, 2, 1, 0.5, 0.1]} order={7.1} />
               <ReplayControl seconds={5} order={7.1} />
               <ForwardControl seconds={5} order={7.2} />
               <TimeDivider order={4.2} />
               <CurrentTimeDisplay order={4.1} />
               <TimeDivider order={4.2} />
-              </ControlBar>
-              {
-                videoEnd && (
-                  <div className='flex justify-center items-center'>
-                  <div className='flex justify-center items-center'>
-                    {
-                      !completedLectures.includes(videoData._id) && (
-                        <button onClick={()=>{handleLectureCompletion()}} className='bg-yellow-100 text-richblack-900 absolute top-[20%] hover:scale-90 z-20 font-medium md:text-sm px-4 py-2 rounded-md'>Mark as Completed</button>
-                      )
-                    }
+            </ControlBar>
+            {videoEnd && (
+              <div className="flex justify-center items-center">
+                <div className="flex justify-center items-center">
+                  {!completedLectures.includes(videoData._id) && (
+                    <button
+                      onClick={() => {
+                        handleLectureCompletion();
+                      }}
+                      className="bg-yellow-100 text-[#000814] absolute top-[20%] hover:scale-90 z-20 font-medium md:text-sm px-4 py-2 rounded-md"
+                    >
+                      Mark as Completed
+                    </button>
+                  )}
+                </div>
+                {!isFirstLecture() && (
+                  <div className=" z-20 left-0 top-1/2 transform -translate-y-1/2 absolute m-5">
+                    <BiSkipPreviousCircle
+                      onClick={previousLecture}
+                      className=" text-2xl md:text-5xl bg-[#424854] rounded-full cursor-pointer hover:scale-90"
+                    />
+                    {/* <button onClick={previousLecture} className='bg-blue-500 text-white px-4 py-2 rounded-md'>Previous Lecture</button> */}
                   </div>
-                  {
-                    !isFirstLecture() && (
-                      <div className=' z-20 left-0 top-1/2 transform -translate-y-1/2 absolute m-5'>
-                        <BiSkipPreviousCircle onClick={previousLecture} className=" text-2xl md:text-5xl bg-richblack-600 rounded-full cursor-pointer hover:scale-90"/>
-                        {/* <button onClick={previousLecture} className='bg-blue-500 text-white px-4 py-2 rounded-md'>Previous Lecture</button> */}
-                      </div>
-                    )
-
-                  }
-                  {
-                    !isLastLecture() && (
-                      <div className=' z-20 right-4 top-1/2 transform -translate-y-1/2 absolute m-5'>
-                        <BiSkipNextCircle onClick={nextLecture} className="text-2xl md:text-5xl bg-richblack-600 rounded-full cursor-pointer hover:scale-90"/>
-                        {/* <button onClick={nextLecture} className='bg-blue-500 text-white px-4 py-2 rounded-md'>Next Lecture</button> */}
-                        </div>
-                    )
-                  }
-                  {
-                    <MdOutlineReplayCircleFilled onClick={() =>{ playerRef.current.seek(0);playerRef.current.play();setVideoEnd(false)}} className="text-2xl md:text-5xl bg-richblack-600 rounded-full cursor-pointer hover:scale-90 absolute top-1/2 z-20"/>
-                  }
+                )}
+                {!isLastLecture() && (
+                  <div className=" z-20 right-4 top-1/2 transform -translate-y-1/2 absolute m-5">
+                    <BiSkipNextCircle
+                      onClick={nextLecture}
+                      className="text-2xl md:text-5xl bg-[#424854] rounded-full cursor-pointer hover:scale-90"
+                    />
+                    {/* <button onClick={nextLecture} className='bg-blue-500 text-white px-4 py-2 rounded-md'>Next Lecture</button> */}
                   </div>
-                )
-              }
-            </Player>
-          </div>
-        )
-      }
-      {/* video title and desc */}
-      <div className='mt-5'>
-        <h1 className='text-2xl font-bold text-richblack-25'>{videoData?.title}</h1>
-        <p className='text-gray-500 text-richblack-100'>{videoData?.description}</p>
+                )}
+                {
+                  <MdOutlineReplayCircleFilled
+                    onClick={() => {
+                      playerRef.current.seek(0);
+                      playerRef.current.play();
+                      setVideoEnd(false);
+                    }}
+                    className="text-2xl md:text-5xl bg-[#424854] rounded-full cursor-pointer hover:scale-90 absolute top-1/2 z-20"
+                  />
+                }
+              </div>
+            )}
+          </Player>
         </div>
+      )}
+      {/* video title and desc */}
+      <div className="mt-5">
+        <h1 className="text-2xl font-bold text-richblack-25">
+          {videoData?.title}
+        </h1>
+        <p className="text-gray-500 text-richblack-100">
+          {videoData?.description}
+        </p>
+      </div>
     </div>
-  )
+  );
 }
 
 export default VideoDetails

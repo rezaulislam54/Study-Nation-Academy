@@ -16,15 +16,13 @@ const StatsComponent = () => {
                 {
                     Stats.map( (data, index) => {
                         return (
-                            <div key={index} className="flex flex-col py-10">
-                                <h1 className='text-[30px] font-bold text-richblack-5'>
-                                    {data.count}
-                                </h1>
-                                <h2>
-                                    {data.label}
-                                </h2>
-                            </div>
-                        )
+                          <div key={index} className="flex flex-col py-10">
+                            <h1 className="text-[30px] font-bold text-[#f1f2ff]">
+                              {data.count}
+                            </h1>
+                            <h2>{data.label}</h2>
+                          </div>
+                        );
                     } )
                 }
             </div>

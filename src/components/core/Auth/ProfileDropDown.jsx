@@ -34,7 +34,7 @@ export default function ProfileDropdown() {
       {open && (
         <div
           onClick={(e) => e.stopPropagation()}
-          className="absolute top-[118%] -right-8 z-[1000] divide-y-[1px] divide-richblack-700 overflow-hidden rounded-md border-[1px] border-richblack-700 bg-richblack-800"
+          className="absolute top-[118%] -right-8 z-[1000] divide-y-[1px] divide-richblack-700 overflow-hidden rounded-md border-[1px] border-richblack-700 bg-[#161d29]"
           ref={ref}
         >
           <Link to="/dashboard/my-profile" onClick={() => setOpen(false)}>
@@ -45,8 +45,8 @@ export default function ProfileDropdown() {
           </Link>
           <div
             onClick={() => {
-              dispatch(logout(navigate))
-              setOpen(false)
+              dispatch(logout(navigate));
+              setOpen(false);
             }}
             className="flex w-full items-center gap-x-1 py-[10px] px-[12px] text-sm text-richblack-100 hover:bg-richblack-700 hover:text-richblack-25"
           >
@@ -56,5 +56,5 @@ export default function ProfileDropdown() {
         </div>
       )}
     </button>
-  )
+  );
 }

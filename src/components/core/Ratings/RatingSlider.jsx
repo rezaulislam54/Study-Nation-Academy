@@ -77,7 +77,7 @@ const RatingSlider = () => {
       >
         {Reviews?.map((review, index) => (
           <SwiperSlide key={index}>
-            <div className="flex flex-col gap-3 min-h-[150px] bg-richblack-800 p-3 text-[14px] text-richblack-25">
+            <div className="flex flex-col gap-3 min-h-[150px] bg-[#161d29] p-3 text-[14px] text-richblack-25">
               <div className="flex items-center gap-4">
                 <img
                   src={review?.user?.image}
@@ -85,10 +85,10 @@ const RatingSlider = () => {
                   className="h-9 w-9 rounded-full object-cover"
                 />
                 <div className="flex flex-col">
-                  <h3 className="font-semibold text-richblack-5">
+                  <h3 className="font-semibold text-[#f1f2ff]">
                     {review?.user?.firstName} {review?.user?.lastName}
                   </h3>
-                  <p className="text-[12px] font-medium text-richblack-500">
+                  <p className="text-[12px] font-medium text-[#f1f2ff]00">
                     {review?.course?.courseName}
                   </p>
                 </div>

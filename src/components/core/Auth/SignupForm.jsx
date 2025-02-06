@@ -90,7 +90,7 @@ function SignupForm() {
       <form onSubmit={handleOnSubmit} className="flex w-full flex-col gap-y-4">
         <div className="flex gap-x-4">
           <label>
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-[#f1f2ff]">
               First Name <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -103,11 +103,11 @@ function SignupForm() {
               style={{
                 boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
               }}
-              className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
+              className="w-full rounded-[0.5rem] bg-[#161d29] p-[12px] text-[#f1f2ff]"
             />
           </label>
           <label>
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-[#f1f2ff]">
               Last Name <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -120,12 +120,12 @@ function SignupForm() {
               style={{
                 boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
               }}
-              className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
+              className="w-full rounded-[0.5rem] bg-[#161d29] p-[12px] text-[#f1f2ff]"
             />
           </label>
         </div>
         <label className="w-full">
-          <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+          <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-[#f1f2ff]">
             Email Address <sup className="text-pink-200">*</sup>
           </p>
           <input
@@ -138,12 +138,12 @@ function SignupForm() {
             style={{
               boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
             }}
-            className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
+            className="w-full rounded-[0.5rem] bg-[#161d29] p-[12px] text-[#f1f2ff]"
           />
         </label>
         <div className="flex gap-x-4">
           <label className="relative">
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-[#f1f2ff]">
               Create Password <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -156,7 +156,7 @@ function SignupForm() {
               style={{
                 boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
               }}
-              className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-10 text-richblack-5"
+              className="w-full rounded-[0.5rem] bg-[#161d29] p-[12px] pr-10 text-[#f1f2ff]"
             />
             <span
               onClick={() => setShowPassword((prev) => !prev)}
@@ -170,7 +170,7 @@ function SignupForm() {
             </span>
           </label>
           <label className="relative">
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-[#f1f2ff]">
               Confirm Password <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -183,7 +183,7 @@ function SignupForm() {
               style={{
                 boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
               }}
-              className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-10 text-richblack-5"
+              className="w-full rounded-[0.5rem] bg-[#161d29] p-[12px] pr-10 text-[#f1f2ff]"
             />
             <span
               onClick={() => setShowConfirmPassword((prev) => !prev)}
@@ -198,14 +198,17 @@ function SignupForm() {
           </label>
         </div>
         <button
-          type="submit" onClick={()=>{dispatch(setProgress(60))}}
-          className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
+          type="submit"
+          onClick={() => {
+            dispatch(setProgress(60));
+          }}
+          className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-[#000814]"
         >
           Create Account
         </button>
       </form>
     </div>
-  )
+  );
 }
 
 export default SignupForm
